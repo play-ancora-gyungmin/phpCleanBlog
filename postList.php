@@ -47,7 +47,7 @@ $title = makeTitle($category);
             <div class="list-item">
                 <h3><a href="#">Example</a></h3>
                 <p>yyyy.mm.dd / #사진</p>
-                <img class="w-75 item-img" src="https://newsimg.hankookilbo.com/cms/articlerelease/2020/04/21/202004211422083541_3.jpg"
+                <img class="w-75 item-img" src="./resorces/img/sample.jpg"
                     alt="쌓여있는 책">
                 <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et
