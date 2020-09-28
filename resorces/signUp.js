@@ -18,12 +18,16 @@ function validReg(id, val) {
             reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
             break;
 
+        case "inputName":
+            reg = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;
+            break;
+
     }
     return reg.test(val);
 }
 
 /* 입력값 확인 */ 
-var $input = $('input[type=email],input[type=password]')
+var $input = $('input[type=text]#inputName,input[type=email],input[type=password]')
 
 $input.blur(function(){
     var thatId = $(this).attr('id')
@@ -49,6 +53,30 @@ $input.blur(function(){
                     }
                 } else {
                      $('#emailHelp').attr('style', 'color: red !important').text("이미 존재하는 이메일입니다.")
+                     pass = false
+                }
+            }
+
+        })
+    } else if (thatId == "inputName") {
+        $.ajax({
+            url: "signUpNameChk.php",
+            type: "post",
+            data: {
+                inputName: $("#inputName").val()
+            },
+            dataType: "html",
+            async: false,
+            success: function (res) {
+                if (res == 'ok'){
+                    if (validReg(thatId,thatValue)) {
+                        $('#nameHelp').attr('style','').text("Good Job!")
+                    } else {
+                        $('#nameHelp').attr('style','color: red !important').text("닉네임 형식을 맞춰주세요.")
+                        pass = false
+                    }
+                } else {
+                    $('#nameHelp').attr('style', 'color: red !important').text("이미 존재하는 이름입니다.")
                      pass = false
                 }
             }
@@ -85,17 +113,18 @@ $signUpBtn.click(function(e){
     $input.trigger('blur')
 
     if (pass){
-        //$("#signUpForm").submit(); for test
-        $.post("./signUpProcess.php",
+        $("#signUpForm").submit(); //for test
+        /*$.post("./signUpProcess.php",
             {
                 inputEmail: $("#inputEmail").val(),
+                inputName: $("#inputName").val(),
                 inputPassword: $("#inputPassword").val(),
                 inputLocal: $("#inputLocal").val()
             },
             function () {
                 alert("가입되었습니따라락");
                 location.replace("signIn.php");
-            })
+            })*/
     } else {
         alert("잘못된 입력이 있습니다.")
     }

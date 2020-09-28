@@ -29,6 +29,11 @@ include 'connect.php';
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
+                        <label for="inputName">이름</label>
+                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Enter Name" required>
+                        <small id="nameHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
                         <label for="inputPassword">암호</label>
                         <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" minlength="8" maxlength="12" required>
                         <small id="passwordHelp" class="form-text text-muted"></small>

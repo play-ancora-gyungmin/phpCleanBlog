@@ -8,7 +8,7 @@ $dbname = "firstdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    echo "DB연결에 실패하였습니다! : ".$conn->connect_error;
+    echo "DB연결에 실패하였습니다.: ".$conn->connect_error;
 } 
 
 /* 유니코드 관리 */
