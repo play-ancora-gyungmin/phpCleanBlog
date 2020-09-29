@@ -21,17 +21,19 @@ include 'connect.php';
     <main id="main">
         <div class="container">
             <h2>로그인</h2>
-            <form action="./signInProcess.php" method="post">
+            <form id="signInForm" action="./signInProcess.php" method="post">
                 <fieldset>
                     <div class="form-group">
                         <label for="inputEmail">이메일</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email" required>
+                        <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter Email" required>
+                        <small id="emailHelp" class="form-text text-muted" style="color:red !Important;"></small>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">암호</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" required>
+                        <small id="passwordHelp" class="form-text text-muted" style="color:red !Important;"></small>
                     </div>
-                    <button type="submit" class="btn btn-primary">로그인</button>
+                    <button id="signInBtn" type="submit" class="btn btn-primary">로그인</button>
                 </fieldset>
             </form>
         </div>
@@ -40,6 +42,8 @@ include 'connect.php';
     <?php
         include "./footer.php";
     ?>
+    <script src="./resorces/signIn.js"></script>
+
 </body>
 
 </html>

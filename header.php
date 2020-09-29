@@ -22,12 +22,30 @@
                         <a class="dropdown-item" href="./postList.php?ctg=talk">잡담</a>
                     </div>
                 </li>
-                <li class="nav-item left">
-                    <a class="nav-link" href="./signIn.php">로그인</a>
-                </li>
-                <li class="nav-item left">
-                    <a class="nav-link" href="./signUp.php">회원가입</a>
-                </li>
+                <?php
+                if(!isset($_SESSION['email'])){
+                ?>
+                    <li class="nav-item left">
+                        <a class="nav-link" href="./signIn.php">로그인</a>
+                    </li>
+                    <li class="nav-item left">
+                        <a class="nav-link" href="./signUp.php">회원가입</a>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="nav-item left">
+                        <b class="nav-link" ><?php echo $_SESSION['name']; ?>님 반갑습니따라락!</b>
+                    </li>
+                    <li class="nav-item left">
+                        <a class="nav-link" href="#">글쓰기</a>
+                    </li>
+                    <li class="nav-item left">
+                        <a class="nav-link" href="./signOutProcess.php">로그아웃</a>
+                    </li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
     </nav>

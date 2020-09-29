@@ -48,11 +48,11 @@ $input.blur(function(){
                     if (validReg(thatId,thatValue)) {
                         $('#emailHelp').attr('style','').text("Good Job!")
                     } else {
-                        $('#emailHelp').attr('style','color: red !important').text("이메일 형식을 맞춰주세요.")
+                        $('#emailHelp').attr('style','color: red !important;').text("이메일 형식을 맞춰주세요.")
                         pass = false
                     }
                 } else {
-                     $('#emailHelp').attr('style', 'color: red !important').text("이미 존재하는 이메일입니다.")
+                     $('#emailHelp').attr('style', 'color: red !important;').text("이미 존재하는 이메일입니다.")
                      pass = false
                 }
             }
@@ -72,11 +72,11 @@ $input.blur(function(){
                     if (validReg(thatId,thatValue)) {
                         $('#nameHelp').attr('style','').text("Good Job!")
                     } else {
-                        $('#nameHelp').attr('style','color: red !important').text("닉네임 형식을 맞춰주세요.")
+                        $('#nameHelp').attr('style','color: red !important;').text("닉네임 형식을 맞춰주세요.")
                         pass = false
                     }
                 } else {
-                    $('#nameHelp').attr('style', 'color: red !important').text("이미 존재하는 이름입니다.")
+                    $('#nameHelp').attr('style', 'color: red !important;').text("이미 존재하는 이름입니다.")
                      pass = false
                 }
             }
@@ -86,7 +86,7 @@ $input.blur(function(){
         if (validReg(thatId, thatValue)) {
             $('#passwordHelp').attr('style', '').text("Good Job!")
         } else {
-            $('#passwordHelp').attr('style', 'color: red !important')
+            $('#passwordHelp').attr('style', 'color: red !important;')
             .text("암호는 영대소문자로 시작해서 영문자와 숫자 그리고 특수문자를 포함하여 8-12자로 만드세요.")
             pass = false
         }
@@ -94,7 +94,7 @@ $input.blur(function(){
        if (thatValue == moreTrim($('#inputPassword').val())) {
            $('#passwordChkHelp').attr('style', '').text("Good Job!")
        } else {
-           $('#passwordChkHelp').attr('style', 'color: red !important')
+           $('#passwordChkHelp').attr('style', 'color: red !important;')
                .text("암호가 같지 않습니다.")
             pass = false
        }
@@ -113,8 +113,8 @@ $signUpBtn.click(function(e){
     $input.trigger('blur')
 
     if (pass){
-        $("#signUpForm").submit(); //for test
-        /*$.post("./signUpProcess.php",
+        //$("#signUpForm").submit(); //for test
+        $.post("./signUpProcess.php",
             {
                 inputEmail: $("#inputEmail").val(),
                 inputName: $("#inputName").val(),
@@ -124,7 +124,7 @@ $signUpBtn.click(function(e){
             function () {
                 alert("가입되었습니따라락");
                 location.replace("signIn.php");
-            })*/
+            })
     } else {
         alert("잘못된 입력이 있습니다.")
     }
