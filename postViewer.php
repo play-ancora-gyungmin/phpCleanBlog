@@ -3,50 +3,27 @@
 <?php
 include 'connect.php';
 session_start();
-
-// make title text
-$category = $_GET['ctg'];
-function makeTitle($category) {
-    $title = '모든글';
-    if ($category == 'photo') {
-        $title = '사진';
-    }elseif ($category == 'art') {
-        $title = '영화/음악';
-    }elseif ($category == 'talk') {
-        $title = '잡담';
-    }else {
-        $title = '모든글';
-    }
-    return $title;
-}
-$title = makeTitle($category);
-
-    
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./resorces/bootstrap.min.css">
     <link rel="stylesheet" href="./resorces/main.css">
-    <title><?php
-        echo "깨끗한 블로그 - ".$title;
-    ?></title>
+    <title>깨끗한 블로그 - 제목</title>
 </head>
+
 <body>
     <?php
         include "./header.php";
     ?>
 
     <main id="main">
-        <!-- 최근 글 목록 -->
         <div class="container">
-            <h2><?php
-                echo $title;
-            ?></h2>
-
+            <h3>최근 글</h3>
             <div class="list-item">
-                <h3><a href="#">Example</a></h3>
+                <h2><a href="#">Example</a></h2>
                 <p>yyyy.mm.dd / #사진</p>
                 <img class="w-75 item-img" src="./resorces/img/sample.jpg"
                     alt="쌓여있는 책">
@@ -61,12 +38,12 @@ $title = makeTitle($category);
                 </p>
                 <hr class="my-4">
             </div>
-
         </div>
     </main>
-
+    
     <?php
         include "./footer.php";
     ?>
 </body>
+    
 </html>

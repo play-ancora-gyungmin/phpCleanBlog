@@ -38,7 +38,7 @@
                         <b class="nav-link" ><?php echo $_SESSION['name']; ?>님 반갑습니따라락!</b>
                     </li>
                     <li class="nav-item left">
-                        <a class="nav-link" href="#">글쓰기</a>
+                        <a class="nav-link" href="./postWriter.php">글쓰기</a>
                     </li>
                     <li class="nav-item left">
                         <a class="nav-link" href="./signOutProcess.php">로그아웃</a>

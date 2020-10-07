@@ -2,6 +2,7 @@
 <html lang="ko">
 <?php
 include 'connect.php';
+session_start();
 ?>
 
 <head>
