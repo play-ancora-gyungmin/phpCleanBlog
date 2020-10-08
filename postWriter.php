@@ -40,11 +40,11 @@ session_start();
                     </div>
                     <div class="form-group">
                         <label for="inputText">내용</label>
-                        <textarea class="form-control" id="inputText" name="inputText" rows="10"></textarea>
+                        <textarea class="form-control" id="inputText" name="inputText" rows="10" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="inputImg">이미지 업로드</label>
-                        <input type="file" accept="image/*" class="form-control-file" id="inputImg" mane="inputImg" aria-describedby="fileHelp">
+                        <input type="file" accept="image/*" class="form-control-file" id="inputImg" name="inputImg" aria-describedby="fileHelp">
                         <small id="fileHelp" class="form-text text-muted">이미지 파일을 업로드 하세요.</small>
                     </div>
                     <button id="uploadBtn" type="submit" class="btn btn-primary">업로드</button>
