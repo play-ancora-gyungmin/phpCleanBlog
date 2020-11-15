@@ -25,28 +25,29 @@ USE `firstdb`;
 --
 
 CREATE TABLE `user` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
   `password` varchar(100) NOT NULL,
   `local` varchar(100) DEFAULT NULL,
-  `sign_date` datetime DEFAULT CURRENT_TIMESTAMP
+  `sign_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
--- 테이블의 인덱스 `user`
+-- 테이블 구조 `post`
 --
 
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-  
-  
---
--- 테이블의 AUTO_INCREMENT `user`
---
-
-ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-COMMIT;
+CREATE TABLE `post` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `userid` int NOT NULL,
+  `title` text NOT NULL,
+  `text` text NOT NULL,
+  `tag` varchar(100) NOT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `post_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id), 
+  FOREIGN KEY (userid) REFERENCES user (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
